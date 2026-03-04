@@ -12,10 +12,10 @@ int main() {
     // Variable to pass reference of to count up and down
     int val = 0;
     // Variables to increase readability (no magic numbers)
-    int limit = 20;
+    int max = 20;
     int min = 0;
     // define the two threads
-    thread a(increment, ref(val), limit);
+    thread a(increment, ref(val), max);
     thread b(decrement, ref(val), min);
     // execute the two threads
     a.join();
@@ -25,10 +25,10 @@ int main() {
 }
 
 // Accepts a reference to the shared variable and the max value
-// Increases value to limit, outputs value to console.
-void increment(int &val, int limit) {
+// Increases value to max, outputs value to console.
+void increment(int &val, int max) {
     mtx.lock();
-    while (val < limit) {
+    while (val < max) {
         cout << val << endl;
         val++;
     }
