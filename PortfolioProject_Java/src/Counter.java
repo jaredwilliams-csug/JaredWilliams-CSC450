@@ -3,12 +3,12 @@ public class Counter implements Runnable {
     private int val;
     private int endVal;
     private int finalInt;
-    private Operation operation;
+    private final Operation operation;
 
     /**
      * Constructor for Counter class
      * Defaults beginningInt and endingInt to 0
-     * @param operation
+     * @param operation Enum value indication incrementing or decrementing
      */
     public Counter(Operation operation) {
         this(operation, 0, 0);
@@ -16,9 +16,9 @@ public class Counter implements Runnable {
 
     /**
      * Constructor for Counter clas
-     * @param beginningInt
-     * @param endingInt
-     * @param operation
+     * @param beginningInt int to count from
+     * @param endingInt int to count to
+     * @param operation Enum value indication incrementing or decrementing
      */
     public Counter(Operation operation, int beginningInt, int endingInt) {
         this.val = beginningInt;
@@ -35,7 +35,7 @@ public class Counter implements Runnable {
 
     /**
      * Set the value to count to
-     * @param endingInt
+     * @param endingInt int value to count to
      */
     public void SetEndVal(int endingInt) {
         this.endVal = endingInt;
@@ -43,7 +43,7 @@ public class Counter implements Runnable {
 
     /**
      * Sets the value to count from
-     * @param beginningInt
+     * @param beginningInt int value to count from
      */
     public void SetVal (int beginningInt) {
         this.val = beginningInt;
