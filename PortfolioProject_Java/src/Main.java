@@ -1,6 +1,7 @@
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
+        var start = System.nanoTime();
         int min = 0;
         int max = 20;
         int value = 0;
@@ -16,5 +17,8 @@ public class Main {
         counterDecrement.SetVal(value);
         counterDecrement.SetEndVal(min);
         threadDec.start();
+        threadDec.join();
+        var stop = System.nanoTime();
+        System.out.println("Duration of execution: " + (stop-start) + " nanoseconds");
     }
 }
