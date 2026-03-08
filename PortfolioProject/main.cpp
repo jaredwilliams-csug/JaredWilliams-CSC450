@@ -9,6 +9,7 @@ void printVal(int &val);
 mutex mtx;
 
 int main() {
+    auto start = chrono::high_resolution_clock::now();
     // Variable to pass reference of to count up and down
     int val = 0;
     // Variables to increase readability (no magic numbers)
@@ -21,6 +22,9 @@ int main() {
     a.join();
     b.join();
 
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::nanoseconds>(stop - start);
+    cout << "Execution time was " << duration.count() << " nanoseconds"<< endl;
     return 0;
 }
 
